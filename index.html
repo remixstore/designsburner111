@@ -986,6 +986,30 @@
 <!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->	
 <script src="js/plugins.js"></script>
 <script src="js/init.js"></script>
+
+<script>
+    document.getElementById('send_message').addEventListener('click', function(event) {
+        event.preventDefault(); // prevent the default behavior of the anchor link
+        
+        // You can perform the form submission here
+        // For example, you can use AJAX to submit the form data to the server
+        
+        // Replace the following code with your actual form submission logic
+        var form = document.getElementById('contact_form'); // Get the form element
+        var formData = new FormData(form); // Create FormData object with form data
+        var xhr = new XMLHttpRequest(); // Create XMLHttpRequest object
+        xhr.open('POST', form.action); // Set the request method and URL
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                // Handle the success response
+                console.log(xhr.responseText);
+                // You can display a success message or redirect to a success page here
+            }
+        };
+        xhr.send(formData); // Send the form data
+    });
+</script>
+
 <!-- /SCRIPTS -->
 
 </body>
